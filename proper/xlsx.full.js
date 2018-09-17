@@ -17197,11 +17197,15 @@ var XLSX = {};
             else if (col.wch) width = col.wch;
             if (width > -1) {
                 p.width = char2width(width);
-                p.customWidth = 1
+                //TODO
+                p.height= 20;
+                p.customHeight=20;
+                p.customWidth = 1;
             }
             o[o.length] = writextag("col", null, p)
         }
         o[o.length] = "</cols>";
+        console.log(o.join(""));
         return o.join("")
     }
 
@@ -17479,6 +17483,8 @@ var XLSX = {};
             o[o.length] = "</worksheet>";
             o[1] = o[1].replace("/>", ">")
         }
+        //TODO
+        console.log('===== :'+o.join(""));
         return o.join("")
     }
 

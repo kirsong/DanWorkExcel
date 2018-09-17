@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>,
+<worksheet xmlns="http://schemas.openxmlformats.or…mlformats.org/officeDocument/2006/relationships">",
+    "<dimension ref="A1:D4"/>", "
+    <sheetViews>
+        <sheetView showGridLines="1" tabSelected="0" workbookViewId="0"/>
+    </sheetViews>", "
+    <cols><col min="1" max="1" width="6.421875" custom…max="4" width="6.421875" customWidth="1"/></cols>", "<sheetData>", "<row r="1"><c r="A1" s="3" t="str"><v>采购单</v></c></row>", "</sheetData>", "<mergeCells count="1"><mergeCell ref="A1:D1"/></mergeCells>", "</worksheet>"

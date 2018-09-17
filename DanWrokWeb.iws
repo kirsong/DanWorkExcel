@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eee0768e-3b5a-4b79-858b-4b8d856c884a" name="Default" comment="" />
+    <list default="true" id="eee0768e-3b5a-4b79-858b-4b8d856c884a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/proper/FileSaver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sheetjs.xlsx.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DanWrokWeb.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/DanWrokWeb.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DanWrokWeb.iws" beforeDir="false" afterPath="$PROJECT_DIR$/DanWrokWeb.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proper/xlsx.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/proper/xlsx.full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protobi.html" beforeDir="false" afterPath="$PROJECT_DIR$/protobi.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +34,8 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="364" column="43" lean-forward="true" selection-start-line="364" selection-start-column="43" selection-end-line="364" selection-end-column="43" />
+            <state relative-caret-position="200">
+              <caret line="360" selection-start-line="360" selection-end-line="360" />
               <folding>
                 <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -173,20 +181,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="protobi.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="protobi.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protobi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="974">
+              <caret line="66" column="4" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xlsx.full.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sheetjs.xlsx.full.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sheetjs.xlsx.full.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="38710" column="16" selection-start-line="38710" selection-start-column="16" selection-end-line="38710" selection-end-column="16" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xlsx.full.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proper/xlsx.full.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="5995" column="16" selection-start-line="5995" selection-start-column="10" selection-end-line="5995" selection-end-column="16" />
+            <state relative-caret-position="435">
+              <caret line="17485" column="14" selection-start-line="17485" selection-start-column="14" selection-end-line="17485" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -196,8 +225,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -220,10 +249,20 @@
       <find>downExcel</find>
       <find>basic-addon1</find>
       <find>D[178]</find>
+      <find>borderAll</find>
+      <find>var Js</find>
+      <find>!rows</find>
+      <find>write_ws_xml</find>
+      <find>!cols</find>
+      <find>&lt;col</find>
+      <find>o.join(</find>
     </findStrings>
     <replaceStrings>
       <replace>4c4c4c</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -233,9 +272,12 @@
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/xlsx.full.min.js" />
         <option value="$PROJECT_DIR$/main.html" />
-        <option value="$PROJECT_DIR$/proper/xlsx.full.js" />
         <option value="$USER_HOME$/Downloads/js-xlsx-master/js-xlsx-master/dist/xlsx.full.min.js" />
+        <option value="$PROJECT_DIR$/proper/FileSaver.js" />
+        <option value="$PROJECT_DIR$/sheetjs.xlsx.full.js" />
         <option value="$PROJECT_DIR$/protobi.html" />
+        <option value="$PROJECT_DIR$/test" />
+        <option value="$PROJECT_DIR$/proper/xlsx.full.js" />
       </list>
     </option>
   </component>
@@ -245,36 +287,44 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
     <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="DanWrokWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DanWrokWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="DanWorkExcel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DanWrokWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DanWrokWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="DanWorkExcel" type="462c0819:PsiDirectoryNode" />
               <item name="proper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DanWrokWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DanWorkExcel" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,13 +332,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shaij\Documents\GitHub\DanWorkExcel\proper" />
       <recent name="$PROJECT_DIR$/source" />
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/source" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -384,11 +436,12 @@
       <workItem from="1536982203403" duration="616000" />
       <workItem from="1536985059196" duration="1538000" />
       <workItem from="1537176887879" duration="1439000" />
+      <workItem from="1537191082900" duration="2423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44598000" />
+    <option name="totallyTimeSpent" value="47021000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -402,12 +455,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22135417" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22117962" />
       <window_info anchor="right" id="Database" order="3" weight="0.32960597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -429,7 +482,181 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/proper/xlsx.full.js</url>
+          <line>17467</line>
+          <properties lambdaOrdinal="-1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6916">
+          <caret line="364" column="43" lean-forward="true" selection-start-line="364" selection-start-column="43" selection-end-line="364" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <marker date="1536985897591" expanded="true" signature="12185:12203" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12278:12304" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12278:12321" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12448:12491" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12448:12521" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12448:12582" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12600:12637" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12600:12654" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12600:12749" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12767:12804" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12767:12821" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="12767:12906" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="14279:14291" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="14293:14299" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="14379:14391" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="14815:14828" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="15117:15123" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="16812:16825" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="16855:16861" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="17616:17622" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="17849:17855" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="17940:17946" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18144:18175" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="18205:18211" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18220:18226" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18287:18293" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18344:18350" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18379:18385" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18394:18400" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18460:18477" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="18504:18515" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="18617:18648" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="18678:18684" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18693:18699" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18760:18766" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18812:18818" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18843:18849" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18858:18864" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="18896:18908" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="18944:18956" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="18998:19010" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="19048:19060" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="19154:19185" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="19215:19221" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19230:19236" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19282:19293" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="19320:19326" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19365:19376" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="19406:19412" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19437:19443" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19452:19458" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19646:19677" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="19707:19713" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19722:19728" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19779:19785" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19836:19842" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19867:19873" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="19882:19888" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20077:20108" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="20138:20144" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20153:20159" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20211:20217" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20257:20263" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20288:20294" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20303:20309" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20494:20525" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="20555:20561" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20570:20576" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20627:20633" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20673:20679" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20704:20710" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20719:20725" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20912:20943" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="20973:20979" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="20988:20994" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21040:21051" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="21078:21084" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21123:21134" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="21157:21163" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21188:21194" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21203:21209" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21402:21433" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="21463:21469" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21478:21484" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21536:21542" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21582:21588" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21613:21619" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21628:21634" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21827:21858" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="21888:21894" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21903:21909" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="21955:21966" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="21994:22000" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="22039:22050" ph="..." />
+            <marker date="1536985897591" expanded="true" signature="22073:22079" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="22104:22110" ph="&amp;nbsp;" />
+            <marker date="1536985897591" expanded="true" signature="22119:22125" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proper/xlsx.full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113905">
+          <caret line="5995" column="16" selection-start-line="5995" selection-start-column="10" selection-end-line="5995" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protobi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6859">
@@ -1168,13 +1395,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3009">
-          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html" />
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1322,13 +1543,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3009">
-          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html" />
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1847,13 +2062,6 @@
     <entry file="file://$USER_HOME$/Downloads/code-learn-master/export-excel/FileSaver.min.js" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/structural.rnc" />
     <entry file="file://$PROJECT_DIR$/dist/LICENSE" />
-    <entry file="file://$PROJECT_DIR$/xlsx.full.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="3" column="30853" selection-start-line="3" selection-start-column="30853" selection-end-line="3" selection-end-column="30853" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -1872,13 +2080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proper/xlsx.full.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="5995" column="16" selection-start-line="5995" selection-start-column="10" selection-end-line="5995" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/js-xlsx-master/js-xlsx-master/dist/xlsx.full.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -1886,17 +2087,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
+    <entry file="file://$PROJECT_DIR$/test.html" />
+    <entry file="file://$PROJECT_DIR$/proper/FileSaver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="122" column="49" lean-forward="true" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
+        <state relative-caret-position="133">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xlsx.full.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="3" column="29408" lean-forward="true" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="364" column="43" lean-forward="true" selection-start-line="364" selection-start-column="43" selection-end-line="364" selection-end-column="43" />
+        <state relative-caret-position="200">
+          <caret line="360" selection-start-line="360" selection-end-line="360" />
           <folding>
             <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -2043,8 +2252,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protobi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="974">
+          <caret line="66" column="4" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sheetjs.xlsx.full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="38710" column="16" selection-start-line="38710" selection-start-column="16" selection-end-line="38710" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proper/xlsx.full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="17485" column="14" selection-start-line="17485" selection-start-column="14" selection-end-line="17485" selection-end-column="14" />
         </state>
       </provider>
     </entry>

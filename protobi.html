@@ -4,7 +4,69 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script src="proper/xlsx.full.js"></script>
+<script src="proper/FileSaver.js"></script>
+<script src="source/jquery-3.3.1.js"></script>
 <body>
 
 </body>
+
+<script>
+    var borderAll = {  //单元格外侧框线
+        top: {
+            style: 'thin'
+        },
+        bottom: {
+            style: 'thin'
+        },
+        left: {
+            style: 'thin'
+        },
+        right: {
+            style: 'thin'
+        }
+    };
+
+    var workbook = {
+        SheetNames: ['Sheet1'],
+        Sheets: {
+            Sheet1: {
+                '!ref': 'A1:D4',
+                '!cols': [{wpx: 45}, {wpx: 165}, {wpx: 45}, {wpx: 45}],
+                '!merges': [{
+                    s: {c: 0, r: 0},
+                    e: {c: 3, r: 0}
+                }],
+                A1:
+                {
+                    v: 'aaaabbbb', t: 's',
+                    s:{
+                        border:borderAll
+                    }
+                },
+            }
+        }
+    };
+
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
+
+    $(function () {
+        var wopts = { bookType:'xlsx', bookSST:false, type:'binary' };
+
+        var wbout = XLSX.write(workbook,wopts);
+        console.log('wbout==>'+wbout);
+
+        /* the saveAs call downloads a file on the local machine */
+        saveAs(new Blob([s2ab(wbout)],{type:""}), "test.xlsx");
+    });
+
+
+
+</script>
+
 </html>
