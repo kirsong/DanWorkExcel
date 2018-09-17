@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="shim.min.js"></script>
+<script src="xlsx.full.min.js"></script>
+<script src="source/jquery-3.3.1.js"></script>
+<script src="source/bootstrap.js"></script>
+<script src="source/jquery.autocomplete.js"></script>
+<script src="source/moment.js"></script>
+<script src="source/jquery.cookie.js"></script>
+<link rel="stylesheet" href="source/bootstrap.css">
+<link rel="stylesheet" href="source/jquery.autocomplete.css">
+<body>
+    <header class="card" style="margin: 10px 40px 10px 40px;padding: 15px;background-color: #f6f3f6;box-shadow: 5px 5px 2px #eaeaea">
+        <div style="margin-top: 10px;">
+            <div class="input-group mb-3" style="width: 50%;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">客户名</span>
+                </div>
+                <input id="user-name-input" type="text" class="form-control" placeholder="输入 客户名" aria-label="Username" aria-describedby="basic-addon1">
+
+                <!--<button type="button" class="btn btn-primary" style="margin-left: 20px;width: 100px;">添加</button>-->
+            </div>
+        </div>
+
+        <!--<div style="margin-top: 10px;">-->
+            <!--<div class="input-group mb-3" style="width: 50%;">-->
+                <!--<div class="input-group-prepend">-->
+                    <!--<span class="input-group-text" id="basic-addon2">免税店</span>-->
+                <!--</div>-->
+                <!--<input type="text" class="form-control" placeholder="输入 免税店" aria-label="Storename" aria-describedby="basic-addon2">-->
+
+                <!--<button type="button" class="btn btn-primary" style="margin-left: 20px;width: 100px;">添加</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="container" style="padding: 0px;margin: 0px;">
+            <div class="row">
+                <!--<div class="col-3">-->
+                    <!--<div class="input-group mb-3">-->
+                        <!--<select class="custom-select" id="StoreGroupSelect">-->
+                            <!--<option selected>选择免税店</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="col-3">
+                    <input id="jine-input" type="text" class="form-control" placeholder="金额" aria-label="" aria-describedby="basic-addon2" onkeyup="value=value.replace(/[^\d]/g,'')">
+                </div>
+                <div class="col-3">
+                    <input id="dianshu-input" type="text" class="form-control" placeholder="点数(%)" aria-label="" aria-describedby="basic-addon2" onkeyup="value=value.replace(/[^\d]/g,'')">
+                </div>
+                <!--<div class="col-3">-->
+                    <!--<input type="text" class="form-control" placeholder="反点" aria-label="" aria-describedby="basic-addon2">-->
+                <!--</div>-->
+
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary  btn-block" onclick="addItem()">添加一条商品</button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">
+                    <input id="excel-date-input" type="text" class="form-control" placeholder="日期" aria-label="" aria-describedby="basic-addon2">
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="downExcel($('#user-name-input').val(),$('#excel-date-input').val())">生成Excel</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main style="overflow: auto;margin: 10px 40px 10px 40px;padding: 15px;">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="home" aria-selected="true">乐天边口</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="profile-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile" aria-selected="false">乐天正常</a>
+            </li>
+        </ul>
+        <div class="tab-content " id="myTabContent" style="padding: 10px 30px 10px 30px;">
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab" style="padding-top: 10px;" name="乐天边口">
+
+                <div class="row" style="text-align: center;">
+                    <div class="col-1" style="border: 1px solid lightgray;">序</div>
+                    <div class="col-3" style="border: 1px solid lightgray;">购买金额(美金)</div>
+                    <div class="col-3" style="border: 1px solid lightgray;">点数</div>
+                    <div class="col-3" style="border: 1px solid lightgray;">反点(美金)</div>
+                </div>
+                <div class="list-data" style="margin-bottom: 30px;min-height: 150px;" >
+
+                </div>
+
+                <div class="total-data" style="">
+                    <div class="row" style="text-align: center">
+                        <div class="col-1" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;">合计</div>
+                        <div class="jine-total col-3" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;"></div>
+                        <div class="col-3" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;"></div>
+                        <div class="fandian-total col-3" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade "  id="tab2" role="tabpanel" aria-labelledby="profile-tab" name="乐天正常">
+                <div class="row" style="text-align: center;">
+                    <div class="col-1" style="border: 1px solid lightgray;">序</div>
+                    <div class="col-3" style="border: 1px solid lightgray;">购买金额(美金)</div>
+                    <div class="col-3" style="border: 1px solid lightgray;">点数</div>
+                    <div class="col-3" style="border: 1px solid lightgray;">反点(美金)</div>
+                </div>
+                <div class="list-data" style="margin-bottom: 30px;min-height: 150px;" >
+
+                </div>
+
+                <div class="total-data" style="">
+                    <div class="row" style="text-align: center">
+                        <div class="col-1" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;">合计</div>
+                        <div class="jine-total col-3" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;"></div>
+                        <div class="col-3" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;"></div>
+                        <div class="fandian-total col-3" style="background-color: #55b15b;height: 30px;line-height: 30px;border: 1px solid #4c4c4c;"></div>
+                    </div>
+                </div>
+
+                <!--<table id="data-table">-->
+                    <!--<tr>-->
+                        <!--&lt;!&ndash; 开始 &ndash;&gt;-->
+                        <!--<td class="text-center" bgcolor="green" style="width: 30px;">序</td>-->
+                        <!--<th class="text-center table-border-cu-line" bgcolor="yellow" style="width: 100px;" >-->
+                            <!--乐天-->
+                        <!--</th >-->
+                        <!--&lt;!&ndash; 结束 &ndash;&gt;-->
+
+                    <!--</tr>-->
+                    <!--&lt;!&ndash; 标头 行开始 &ndash;&gt;-->
+                    <!--<tr>-->
+                        <!--&lt;!&ndash; 标头 开始 &ndash;&gt;-->
+                        <!--<td class="text-center" bgcolor="green" style="width: 50px;"></td>-->
+                        <!--<td class="text-center" style="width: 150px">购买金额(美金)</td>-->
+                        <!--<td class="text-center" style="width: 80px">点数</td>-->
+                        <!--<td class="text-center" style="width: 100px">反点(美金)</td>-->
+                        <!--&lt;!&ndash; 标头 结束 &ndash;&gt;-->
+
+                    <!--</tr>-->
+                    <!--&lt;!&ndash; 标头 行结束 &ndash;&gt;-->
+
+                    <!--&lt;!&ndash; item 行开始 &ndash;&gt;-->
+                    <!--<tr>-->
+                        <!--<td class="text-center" style="width: 50px;">1</td>-->
+                        <!--<td class="text-right" style="width: 150px">100</td>-->
+                        <!--<td class="text-right" style="width: 80px">40</td>-->
+                        <!--<td class="text-right" style="width: 100px">40</td>-->
+                    <!--</tr>-->
+                    <!--&lt;!&ndash; item 行结束 &ndash;&gt;-->
+
+                    <!--&lt;!&ndash; 总计开始 &ndash;&gt;-->
+                    <!--<tr>-->
+                        <!--<td class="text-center" bgcolor="#28a745">合计</td>-->
+                        <!--<td class="text-center" bgcolor="#28a745">000</td>-->
+                        <!--<td class="text-center" bgcolor="#28a745">&nbsp; </td>-->
+                        <!--<td class="text-center" bgcolor="#28a745">000</td>-->
+                    <!--</tr>-->
+                    <!--&lt;!&ndash; 总计结束&ndash;&gt;-->
+                <!--</table>-->
+                <!--<button onclick="test()">execl</button>-->
+            </div>
+        </div>
+
+    </main>
+    <table id="table-excel" style="display: none"></table>
+
+    <style>
+        .table-border-cu-line{
+            border: 2px solid;
+        }
+    </style>
+</body>
+
+<script>
+
+    var totalData=new Array();
+
+    $(function () {
+        document.onkeydown=function (event) {
+
+            var e = event || window.event;
+            if (e && e.keyCode==13){//Enter키
+                addItem();
+                $("#jine-input").focus();
+            }
+        }
+    });
+
+    function test() {
+        var tbl = XLSX.utils.table_to_book(document.getElementById('data-table'));
+//        tbl.Sheets["Sheet1"]["!freeze"] = "A2";
+        XLSX.writeFile(tbl, "export.xlsx", {cellStyles:true,WFT:1});
+//        window.open('data:application/vnd.ms-excel,' +$('#sheetjs').html());
+
+//        var tbl = document.getElementById('sheetjs');
+//        var wb = XLSX.utils.table_to_book(tbl);
+//        XLSX.writeFile(wb,"SheetJS.xls",{compression:true});
+
+    }
+    
+    function addItem() {
+
+        if ($("#user-name-input").val().length<1){
+            $("#user-name-input").focus();
+            alert('请输入客户名');
+            return
+        }
+        else if ($('#jine-input').val().length<=0){
+            $('#jine-input').focus();
+            alert('输入金额');
+        }
+        else if ($('#dianshu-input').val().length<=0){
+            alert('输入点数');
+        }
+
+        var itemData={
+            jine:$('#jine-input').val(),
+            dianshu:$('#dianshu-input').val(),
+            fandian:$('#jine-input').val() * ($('#dianshu-input').val()/100)
+        };
+
+        var isnew=true;
+        for (var i=0;i<totalData.length;i++){
+            var item=totalData[i];
+            if (item.brandName==$('#myTab li.nav-item a.active').html()){
+                item.items.push(itemData);
+                isnew=false;
+                break;
+            }
+        }
+
+        if (isnew){
+            var itemObj={
+                brandName:String,
+                items:new Array(),
+            };
+            itemObj.brandName=$('#myTab li.nav-item a.active').html();
+            itemObj.items.push(itemData);
+            totalData.push(itemObj);
+        }
+
+        var brandName=$('#myTab li.nav-item a.active').html();
+        var tableHtml= $('div[name="'+brandName+'"] .list-data');
+        var jineTotalHtml= $('div[name="'+brandName+'"] .total-data .jine-total');
+        var fandianTotalHtml=$('div[name="'+brandName+'"] .total-data .fandian-total');
+
+        var bgColor=(tableHtml.children().length)%2==0?'#ffffff':'lightgray';
+        var itemHtml="<div class=\"row\" style=\"text-align: center\">\n" +
+            "                        <div class=\"col-1\" style=\"border: 1px solid #4c4c4c;background-color:"+bgColor+"\">"+(tableHtml.children().length+1)+"</div>\n" +
+            "                        <div class=\"col-3\" style=\"border: 1px solid #4c4c4c;background-color:"+bgColor+"\">"+itemData.jine+"</div>\n" +
+            "                        <div class=\"col-3\" style=\"border: 1px solid #4c4c4c;width: 30%;background-color:"+bgColor+"\">"+itemData.dianshu+"%</div>\n" +
+            "                        <div class=\"col-3\" style=\"border: 1px solid #4c4c4c;width: 30%;background-color:"+bgColor+"\">"+itemData.fandian+"</div>\n" +
+            "                    </div>";
+        tableHtml.append(itemHtml);
+
+        //토탈 계산
+        var jineTotal=0,fandianTotal=0;
+
+//        alert(JSON.stringify(totalData));
+        for (var i=0;i<totalData.length;i++) {
+            var item = totalData[i];
+            if (item.brandName == $('#myTab li.nav-item a.active').html()) {
+                for (var j=0;j<item.items.length;j++){
+                    jineTotal=Number(jineTotal)+Number(item.items[j].jine);
+                    fandianTotal=Number(fandianTotal)+Number(item.items[j].fandian);
+                }
+            }
+        }
+        jineTotalHtml.html(jineTotal);
+        fandianTotalHtml.html(Math.floor(fandianTotal*100)/100);
+
+        $.cookie(
+            $("#user-name-input").val()+"_"+moment().format('YYYY-MM-DD'),
+            JSON.stringify(totalData),
+            {exprise:7});
+    }
+
+    /**
+     *
+     * @param userName
+     * @param datetxt
+     */
+    function downExcel(userName,datetxt) {
+
+        if ($("#user-name-input").val().length<1){
+            $("#user-name-input").focus();
+            alert('请输入客户名');
+            return
+        }else if ($("#excel-date-input").val().length<1){
+            $("#excel-date-input").focus();
+            alert('请输入日期');
+            return
+        }
+
+        var excelHtml="<table id=\"data-table\">\n" ;
+
+        //免税店名称
+        excelHtml+="<tr>";
+        excelHtml+="<td style='width: 30px;'>&nbsp;</td>";
+        excelHtml+="<td class=\"text-center\" bgcolor=\"green\" style=\"width: 30px;\">序</td>";
+
+        var colspan=0;
+        var itemSumline=0;//数据中,获取最长数据数目的数字
+        var buyPrice=0;//购买总金额
+        var fandianPrice=0;//返点总金额
+
+        for (var i=0;i<totalData.length;i++){
+            if (i==0){
+                colspan=0;
+            }else{
+                colspan+=2;
+            }
+            excelHtml+="<th class=\"text-center table-border-cu-line\" colspan='"+colspan+"' bgcolor=\"yellow\" style=\"width: 100px;\" >\n" +
+                totalData[i].brandName+"</th >"
+
+            if (totalData[i].items.length>itemSumline){
+                itemSumline=totalData[i].items.length;
+            }
+
+        };
+        excelHtml+="</tr>";
+
+        //标头
+        excelHtml+="<tr>";
+        excelHtml+="<td>&nbsp;</td>";
+        excelHtml+="<td class=\"text-center\" bgcolor=\"green\" style=\"width: 50px;\"></td>";
+        for (var i=0;i<totalData.length;i++){
+            excelHtml+="<td class=\"text-center\" style=\"width: 150px\">购买金额(美金)</td>\n" +
+                "                        <td class=\"text-center\" style=\"width: 80px\">点数</td>\n" +
+                "                        <td class=\"text-center\" style=\"width: 100px\">反点(美金)</td>";
+        }
+        excelHtml+="</tr>";
+
+        //item
+        for (var i=0;i<itemSumline;i++){
+
+            excelHtml+="<tr>";
+            excelHtml+="<td>&nbsp;</td>";
+            excelHtml+="<td class=\"text-center\" style=\"width: 50px;\">"+(i+1)+"</td>";
+            for (var j=0;j<totalData.length;j++){
+                var item=totalData[j];
+                if (item.items.length >=(i+1)){
+                    excelHtml+="<td class=\"text-right\" style=\"width: 150px\">"+item.items[i].jine+"</td>\n" +
+                        "                        <td class=\"text-right\" style=\"width: 80px\">"+item.items[i].dianshu+"&nbsp;%</td>\n" +
+                        "                        <td class=\"text-right\" style=\"width: 100px\">"+item.items[i].fandian+"</td>";
+                }else{
+                    excelHtml+="<td class=\"text-right\" style=\"width: 150px\">&nbsp;</td>\n" +
+                        "                        <td class=\"text-right\" style=\"width: 80px\">&nbsp;</td>\n" +
+                        "                        <td class=\"text-right\" style=\"width: 100px\">&nbsp;</td>";
+                }
+            }
+
+            excelHtml+="</tr>";
+        }
+
+        //总计
+        excelHtml+="<tr style='height: 40px;'>";
+        excelHtml+="<td >&nbsp;</td>";
+        excelHtml+="<td class=\"text-center\" bgcolor=\"#28a745\">合计</td>";
+        for (var i=0;i<totalData.length;i++){
+            var item = totalData[i];
+            var jineTotal=0;
+            var fandianTotal=0;
+            for (var j=0;j<item.items.length;j++){
+                jineTotal=Number(jineTotal)+Number(item.items[j].jine);
+                fandianTotal=Number(fandianTotal)+Number(item.items[j].fandian);
+            }
+
+            buyPrice= Number(buyPrice)+Number(jineTotal);
+            fandianPrice=Number(fandianPrice)+Number(fandianTotal);
+
+            excelHtml+="<td class=\"text-center\" bgcolor=\"#28a745\">"+jineTotal+"</td>\n" +
+                "                        <td class=\"text-center\" bgcolor=\"#28a745\">&nbsp; </td>\n" +
+                "                        <td class=\"text-center\" bgcolor=\"#28a745\">"+fandianTotal+"</td>";
+        }
+
+        excelHtml+="</tr>";
+
+        //日期
+        excelHtml+="<tr>";
+        excelHtml+="<td>&nbsp;</td>";
+        excelHtml+="<td class='text-center'>日期</td>"
+        excelHtml+="<td>&nbsp;</td>";
+        excelHtml+="<td class='text-center'>"+datetxt+"</td>"
+        excelHtml+="</tr>";
+        excelHtml+="<tr>";
+        excelHtml+="</tr>";
+
+        //总结
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+
+        excelHtml+="<td bgcolor='yellow'>姓名</td><td>&nbsp;</td>"
+                +"<td >"+userName+"</td><td>&nbsp;</td>"
+                +"<td>&nbsp;</td><td>&nbsp;</td>"
+                +"<td bgcolor='#90ee90'><span style='font-weight: bold'>追加反点</span>(<span style='color: red;'>下次行程对金额一起结算</span>)</td>";
+        excelHtml+="</tr>";
+
+        //日期
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td bgcolor='#90ee90'>日期</td><td>&nbsp;</td>"
+            +"<td >"+datetxt+"</td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td style='width: 100px'>品牌</td>"
+            +"<td style='width: 100px'>购买金额(美金)</td>"
+            +"<td style='width: 100px'>追加点数</td>"
+            +"<td style='width: 100px'>追加返点(美金)</td>";
+        excelHtml+="</tr>";
+
+        //购买总金额
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td ><span style='color: red;'>购买总金额(美金)</span></td><td>&nbsp;</td>"
+            +"<td ><span style='color: red;'>"+buyPrice+"</span></td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        //返点总金额
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td >返点总金额(美金)</td><td>&nbsp;</td>"
+            +"<td >"+fandianPrice+"</td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        //0返点总金额
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td >0返点总金额(美金)</td><td>&nbsp;</td>"
+            +"<td >"+0+"</td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        //汇率
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td >汇率(美金兑韩元)</td><td>&nbsp;</td>"
+            +"<td >"+0+"</td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        //返点总数
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td ><span style='color: red;'>返点总金额(韩元)</span></td><td>&nbsp;</td>"
+            +"<td ><span style='color: red;'>"+0+"</span></td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        //汇率(韩币兑人民币)
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td >汇率(韩元兑人民币)</td><td>&nbsp;</td>"
+            +"<td >"+0+"</td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        //返点总金额(人民币)
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
+        excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
+        excelHtml+="<td ><span style='color: red;'>返点总金额(人民币)</span></td><td>&nbsp;</td>"
+            +"<td ><span style='color: red;'>"+0+"</span></td><td>&nbsp;</td>"
+            +"<td>&nbsp;</td><td>&nbsp;</td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>"
+            +"<td ></td>";
+        excelHtml+="</tr>";
+
+        excelHtml+="</table>";
+        $("#table-excel").empty();
+        $("#table-excel").html(excelHtml);
+
+        var tbl = XLSX.utils.table_to_book(document.getElementById('table-excel'));
+//        tbl.Sheets["Sheet1"]["!freeze"] = "A2";
+        XLSX.writeFile(tbl, userName+"_"+datetxt+".xlsx", {cellStyles:true,WFT:1});
+    }
+
+</script>
+</html>
