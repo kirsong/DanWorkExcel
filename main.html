@@ -5,8 +5,7 @@
     <title>Title</title>
 </head>
 <script src="shim.min.js"></script>
-<!--<script src="xlsx.full.min.js"></script>-->
-<script src="sheetjs.xlsx.full.js"></script>
+<script src="xlsx.full.min.js"></script>
 <script src="source/jquery-3.3.1.js"></script>
 <script src="source/bootstrap.js"></script>
 <script src="source/jquery.autocomplete.js"></script>
@@ -361,9 +360,9 @@
         }
 
         //总计
-        excelHtml+="<tr style='height: 150px;'>";
+        excelHtml+="<tr style='height: 40px;'>";
         excelHtml+="<td >&nbsp;</td>";
-        excelHtml+="<td class=\"text-center\" bgcolor=\"#28a745\">合计111</td>";
+        excelHtml+="<td class=\"text-center\" bgcolor=\"#28a745\">合计</td>";
         for (var i=0;i<totalData.length;i++){
             var item = totalData[i];
             var jineTotal=0;
@@ -394,7 +393,7 @@
         excelHtml+="</tr>";
 
         //总结
-        excelHtml+="<tr style='height: 30px;text-align: center;' >";
+        excelHtml+="<tr style='height: 30px;text-align: center' >";
         excelHtml+="<td>&nbsp;</td><td>&nbsp;</td>";
 
         excelHtml+="<td bgcolor='yellow'>姓名</td><td>&nbsp;</td>"
