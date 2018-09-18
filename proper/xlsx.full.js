@@ -17197,15 +17197,11 @@ var XLSX = {};
             else if (col.wch) width = col.wch;
             if (width > -1) {
                 p.width = char2width(width);
-                //TODO
-                p.height= 20;
-                p.customHeight=20;
                 p.customWidth = 1;
             }
             o[o.length] = writextag("col", null, p)
         }
         o[o.length] = "</cols>";
-        console.log(o.join(""));
         return o.join("")
     }
 
@@ -17416,9 +17412,25 @@ var XLSX = {};
                 if (ws[ref] === undefined) continue;
                 if ((cell = write_ws_xml_cell(ws[ref], ref, ws, opts, idx, wb)) != null) r.push(cell)
             }
-            if (r.length > 0) o[o.length] = writextag("row", r.join(""), {
-                r: rr
-            })
+
+            var rowop={
+                r:rr
+            }
+
+            //TODO
+            if (ws["!rows"]!=null || ws["!rows"]!=undefined){
+                if (ws["!rows"].length > (R)){
+                    rowop.ht=ws["!rows"][R];
+                    rowop.customHeight='1';
+                }
+            }
+
+            // if (r.length > 0) o[o.length] = writextag("row", r.join(""), {
+            //     r: rr,
+            //     ht:'50',
+            //     customHeight:'1'
+            // })
+            if (r.length > 0) o[o.length] = writextag("row", r.join(""), rowop);
         }
         return o.join("")
     }
@@ -17484,7 +17496,6 @@ var XLSX = {};
             o[1] = o[1].replace("/>", ">")
         }
         //TODO
-        console.log('===== :'+o.join(""));
         return o.join("")
     }
 
