@@ -17240,6 +17240,7 @@ var XLSX = {};
         var v = writetag("v", escapexml(vv)),
             o = {
                 r: ref
+
             };
         //TODO
         if (cell.f !== undefined){
