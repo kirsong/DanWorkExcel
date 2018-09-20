@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<script src="shim.min.js"></script>
-<!--<script src="xlsx.full.min.js"></script>-->
-<script src="sheetjs.xlsx.full.js"></script>
+<script src="proper/xlsx.full.js"></script>
+<script src="proper/FileSaver.js"></script>
 <script src="source/jquery-3.3.1.js"></script>
 <script src="source/bootstrap.js"></script>
 <script src="source/jquery.autocomplete.js"></script>
@@ -283,6 +281,8 @@
             {exprise:7});
     }
 
+    //列坐标字母
+    var excelCellEnglish=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     /**
      *
      * @param userName
@@ -298,6 +298,315 @@
             $("#excel-date-input").focus();
             alert('请输入日期');
             return
+        }
+        //TODO ============= excel 工作中 ====================
+        var sheetName=userName+"_"+moment().format('YYYY-MM-DD');
+        var rowsHeight=[10,27,20];//设置高度.
+        var merges=[//合并
+        ];
+        var rowMergesLineNumber=2;//合并行坐标.
+        var itemSumline=0;//数据中,获取最长数据数目的数字.(获取的实际数据中再+backItemSum,以备份用)
+        var backItemSum=3;//比实际数据中多加行
+
+        //得去最长数据数字
+        for (var i=0;i<totalData.length;i++){
+            if (totalData[i].items.length>itemSumline){
+                itemSumline=totalData[i].items.length;
+            }
+        };
+        itemSumline=itemSumline+rowMergesLineNumber+backItemSum;
+
+        //合并部分
+        merges=[//合并
+            {//'序'字 合并
+                s: {c: 1, r: 1},//开始坐标
+                e: {c: 1, r: 2}//结束坐标
+            },
+            //客户名合并(合计下面)
+            {
+                s:{c:1,r:itemSumline+1},
+                e:{c:2,r:itemSumline+1},
+            },
+            //日期合并(合计下面)
+            {
+                s:{c:3,r:itemSumline+1},
+                e:{c:4,r:itemSumline+1}
+            },
+
+            //总结--开始
+            {
+                s:{c:2,r:itemSumline+1+2},
+                e:{c:3,r:itemSumline+1+2}
+            },
+            {
+                s:{c:4,r:itemSumline+1+2},
+                e:{c:5,r:itemSumline+1+2}
+            },
+            {
+                s:{c:2,r:itemSumline+1+3},
+                e:{c:3,r:itemSumline+1+3}
+            },
+            {
+                s:{c:4,r:itemSumline+1+3},
+                e:{c:5,r:itemSumline+1+3}
+            },
+            {
+                s:{c:2,r:itemSumline+1+4},
+                e:{c:3,r:itemSumline+1+4}
+            },
+            {
+                s:{c:4,r:itemSumline+1+4},
+                e:{c:5,r:itemSumline+1+4}
+            },
+            {
+                s:{c:2,r:itemSumline+1+5},
+                e:{c:3,r:itemSumline+1+5}
+            },
+            {
+                s:{c:4,r:itemSumline+1+5},
+                e:{c:5,r:itemSumline+1+5}
+            },
+            {
+                s:{c:2,r:itemSumline+1+6},
+                e:{c:3,r:itemSumline+1+6}
+            },
+            {
+                s:{c:4,r:itemSumline+1+6},
+                e:{c:5,r:itemSumline+1+6}
+            },
+            {
+                s:{c:2,r:itemSumline+1+7},
+                e:{c:3,r:itemSumline+1+7}
+            },
+            {
+                s:{c:4,r:itemSumline+1+7},
+                e:{c:5,r:itemSumline+1+7}
+            },
+            {
+                s:{c:2,r:itemSumline+1+8},
+                e:{c:3,r:itemSumline+1+8}
+            },
+            {
+                s:{c:4,r:itemSumline+1+8},
+                e:{c:5,r:itemSumline+1+8}
+            },
+            {
+                s:{c:2,r:itemSumline+1+9},
+                e:{c:3,r:itemSumline+1+9}
+            },
+            {
+                s:{c:4,r:itemSumline+1+9},
+                e:{c:5,r:itemSumline+1+9}
+            },
+            {
+                s:{c:2,r:itemSumline+1+10},
+                e:{c:3,r:itemSumline+1+10}
+            },
+            {
+                s:{c:4,r:itemSumline+1+10},
+                e:{c:5,r:itemSumline+1+10}
+            },
+            //总结---结束
+
+            //追加总结开始
+            {
+                s:{c:11,r:itemSumline+1+2},
+                e:{c:14,r:itemSumline+1+2}
+            },
+        ];
+
+        //免税店名合并
+        var _c=0;
+        for (var i=0;i<totalData.length;i++){
+
+            _c+=2;
+            var item={
+                s:{c:_c,r:1},
+                e:{c:_c+2,r:1}
+            }
+            _c+=1;
+            merges.push(item);
+        }
+
+
+        var workbook={
+            SheetNames:[sheetName],
+            Sheets:{
+                Sheet1: {
+                    '!ref': 'A1:Z100',
+                    '!cols':[{wpx:20},{wpx:40},
+                        {wpx:100},{wpx:100},{wpx:100},//标题标签长度
+                        {wpx:100},{wpx:70},{wpx:70}, {wpx:100},{wpx:70},{wpx:70},
+                        {wpx:100},{wpx:100},{wpx:70}, {wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},{wpx:100},{wpx:70},{wpx:70},
+                    ],
+                    '!rows':rowsHeight,
+                    '!merges':merges,
+
+                    //'序'字---开始
+                    B2:{
+                        v:'序',//内容
+                        t:'s',//应该是变量类型, s为String
+                        s:{//Style
+                            alignment:cellContentPosition.textCenter,
+                            border:borderStyle.boldLine,//边线
+                            fill:{
+                                fgColor:{rgb : "86e38d"}
+                            }
+                        }
+                    },
+                    B3:{
+                        s:{
+                            border:borderStyle.shopLine,//边线
+                        }
+                    },
+                    //'序'字结束
+                }
+            }
+
+        };
+
+        //免税店名cell
+        var data_col_index=2;//列开始坐标
+        var data_row_index=2;//行开始坐标
+        for (var i=0;i<totalData.length;i++){
+            var itemData={
+                    v:totalData[i].brandName,
+                    s:{
+                        alignment:cellContentPosition.textCenter,
+                        font:{
+                            bold:true//加粗
+                        },
+                        border:borderStyle.shopLine,
+                        fill:{
+                            fgColor:{rgb:colors.yellow}
+                        }
+                    }
+                };
+            var line1={s:{border:borderStyle.shopLine}};
+            var line2={s:{border:borderStyle.shopLine}};
+
+            workbook.Sheets.Sheet1[excelCellEnglish[data_col_index]+data_row_index]=itemData;
+            data_col_index+=1;
+            workbook.Sheets.Sheet1[excelCellEnglish[data_col_index]+data_row_index]=line1;
+            data_col_index+=1;
+            workbook.Sheets.Sheet1[excelCellEnglish[data_col_index]+data_row_index]=line2;
+
+            data_row_index+=1;
+            workbook.Sheets.Sheet1[excelCellEnglish[data_col_index-2]+data_row_index]={
+                v:'购买金额(美金)',
+                t:'s',
+                s:excelStyle.titleLabelCell
+            };
+            workbook.Sheets.Sheet1[excelCellEnglish[data_col_index-1]+data_row_index]={
+                v:'点数',
+                t:'s',
+                s:excelStyle.titleLabelCell
+            };
+            workbook.Sheets.Sheet1[excelCellEnglish[data_col_index]+data_row_index]={
+                v:'反点(美金)',
+                t:'s',
+                s:excelStyle.titleLabelCell
+            };
+            data_row_index=2;
+            data_col_index+=1;
+        }
+
+        //填写数据
+        data_col_index=2,data_row_index=4;
+        for(var i=0;i<(itemSumline);i++){
+
+            if (totalData.length>i){
+                for(var j=0;j<totalData[i].items.length;j++){
+                    //金额数据
+                    var _cellName=excelCellEnglish[data_col_index]+data_row_index;//坐标地址
+                    workbook.Sheets.Sheet1[_cellName]={
+                        v:totalData[i].items[j].jine,
+                        t:'n',
+                        s:excelStyle.dataItemCell
+                    };
+                    //点数数据
+                    _cellName=excelCellEnglish[data_col_index+1]+data_row_index;
+                    workbook.Sheets.Sheet1[_cellName]={
+                        v:totalData[i].items[j].jine+"%",
+                        t:'s',
+                        s:excelStyle.dataItemCell
+                    };
+                    //反点
+                    _cellName=excelCellEnglish[data_col_index+2]+data_row_index;
+                    workbook.Sheets.Sheet1[_cellName]={
+                        v:0,
+                        t:'n',
+                        f: excelCellEnglish[data_col_index]+data_row_index+'*'+excelCellEnglish[data_col_index+1]+data_row_index,
+                        s:excelStyle.dataRightItemCell
+                    };
+
+                    data_row_index+=1;
+                }
+
+                //合计-金额公式的String
+                var hejiJineFormula='SUM('+excelCellEnglish[data_col_index]+'4'+':'+excelCellEnglish[data_col_index]+itemSumline+ ')';
+                //合计-反点公式的String
+                var hejiFandianFormula='SUM('+excelCellEnglish[data_col_index+2]+'4'+':'+excelCellEnglish[data_col_index+2]+itemSumline+ ')';
+                //合计数据
+                //金额
+                workbook.Sheets.Sheet1[excelCellEnglish[data_col_index]+(itemSumline+1)]={
+                    v:0,
+                    t:'n',
+                    f:hejiJineFormula,
+                    s:excelStyle.totalItemCell
+                };
+                //点数
+                workbook.Sheets.Sheet1[excelCellEnglish[data_col_index+1]+(itemSumline+1)]={
+                    v:' ',
+                    t:'s',
+                    s:excelStyle.totalItemCell
+                };
+                //反点
+                workbook.Sheets.Sheet1[excelCellEnglish[data_col_index+2]+(itemSumline+1)]={
+                    v:0,
+                    t:'n',
+                    f:hejiFandianFormula,
+                    s:excelStyle.totalRightItemCell
+                };
+
+                //一个免税店完成,下一个免税店的坐标值
+                data_col_index+=3;
+                data_row_index=4;
+
+            }
+
+//            //编号 //TODO 出错
+//            for (var i=0;i<itemSumline;i++){
+//                workbook.Sheets.Sheet1['B'+(i+4)]={
+//                    v:(i+1),
+//                    t:'n',
+//                    s:excelStyle.dataIndexCell
+//                }
+//            }
+//            workbook.Sheets.Sheet1['B'+(itemSumline+1+4)]={
+//                v:'合计',
+//                t:'s',
+//                s:excelStyle.totalLabelCell
+//            }
+
+//            var _cellName=
+
+//            workbook.Sheets.Sheet1[]
+
+        }
+
+        console.log(JSON.stringify(workbook));
+
+        var workData=JSON.parse(JSON.stringify(workbook).replace(/Sheet1/g,sheetName));
+        var wopts = { bookType:'xlsx', bookSST:false, type:'binary' };
+        var wbout = XLSX.write(workData,wopts);
+
+        /* the saveAs call downloads a file on the local machine */
+        saveAs(new Blob([s2ab(wbout)],{type:""}), "test.xlsx");
+        //TODO =================================
+
+        if (true){
+            return;
         }
 
         var excelHtml="<table id=\"data-table\">\n" ;
@@ -508,6 +817,17 @@
 //        tbl.Sheets["Sheet1"]["!freeze"] = "A2";
         XLSX.writeFile(tbl, userName+"_"+datetxt+".xlsx", {cellStyles:true,WFT:1});
     }
+
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
+
+    $(function () {
+
+    });
 
 </script>
 </html>
