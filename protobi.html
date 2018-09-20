@@ -358,7 +358,8 @@
                     {wpx:100},{wpx:100},{wpx:70},
                     {wpx:100},{wpx:70},{wpx:70},
                     ],
-                '!rows':[10,27,20,20,30,20,15,//设置高度
+                '!rows':[10,//设置高度
+                    27,20,20,30,20,15,
                     25,25,25,25,25,25,25,25,25,25],//总结高度
                 '!merges': [
                     {//'序'字 合并
@@ -681,8 +682,8 @@
                 D11:{s:{border:borderStyle.leftBold}},
                 //数据
                 E11:{
-                    v:'4936',
-                    t:'n',
+                    v:'10%',
+                    t:'s',
                     s:{
                         alignment:cellContentPosition.textCenter,
                         border:borderStyle.rightBold,
@@ -702,8 +703,9 @@
                 D12:{s:{border:borderStyle.leftBold}},
                 //数据
                 E12:{
-                    v:'4936',
+                    v:0,
                     t:'n',
+                    f:'SUM(E10:E11)',
                     s:{
                         alignment:cellContentPosition.textCenter,
                         border:borderStyle.rightBold,

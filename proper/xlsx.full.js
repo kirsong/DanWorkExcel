@@ -17208,6 +17208,7 @@ var XLSX = {};
     function write_ws_xml_cell(cell, ref, ws, opts, idx, wb) {
         if (cell.v === undefined && cell.s === undefined) return "";
         var vv = "";
+        var attr = {};
         var oldt = cell.t,
             oldv = cell.v;
         switch (cell.t) {
@@ -17236,6 +17237,13 @@ var XLSX = {};
             o = {
                 r: ref
             };
+        //TODO
+        if (cell.f !== undefined){
+            var v = cell.f ? writetag('f', escapexml(cell.f)) : writetag('v', escapexml(vv));
+            console.log('formula ======= '+v);
+        }
+
+
         var os = get_cell_style(opts.cellXfs, cell, opts);
         if (os !== 0) o.s = os;
         switch (cell.t) {
@@ -17265,6 +17273,9 @@ var XLSX = {};
         }
         return writextag("c", v, o)
     }
+
+
+
     var parse_ws_xml_data = function parse_ws_xml_data_factory() {
         var cellregex = /<(?:\w+:)?c[ >]/,
             rowregex = /<\/(?:\w+:)?row>/;
