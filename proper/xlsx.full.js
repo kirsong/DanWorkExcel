@@ -17241,7 +17241,6 @@ var XLSX = {};
         //TODO
         if (cell.f !== undefined){
             var v = cell.f ? writetag('f', escapexml(cell.f)) : writetag('v', escapexml(vv));
-            console.log('formula ======= '+v);
         }
 
 

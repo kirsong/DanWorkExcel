@@ -277,6 +277,14 @@ var excelStyle={
         }
     },
 
+    titleRightLabelCell:{
+        alignment:cellContentPosition.textCenter,
+        border:borderStyle.rightBottomBold,
+        font:{
+            sz:9
+        }
+    },
+
     //编号
     dataIndexCell:{
         alignment:cellContentPosition.textCenter,
