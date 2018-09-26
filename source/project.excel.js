@@ -261,7 +261,7 @@ var colors={
     totalGreen:"c4d79c",//合计绿
     otherGreen:"92cf50",//其它绿
     yellow:"ffff00",//黄色
-    blueGray:"7382b8",//浅蓝色
+    blueGray:"95B3D7",//浅蓝色
     red:"ff0000",//红色
 };
 
