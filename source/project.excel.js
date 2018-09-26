@@ -297,6 +297,14 @@ var excelStyle={
         border:borderStyle.nomalLine
     },
 
+    dataIItemRedcell:{
+        alignment:cellContentPosition.textRight,
+        border:borderStyle.nomalLine,
+        font:{
+            color:{rgb : colors.red}
+        }
+    },
+
     //右侧加粗数据内容
     dataRightItemCell:{
         alignment:cellContentPosition.textRight,
