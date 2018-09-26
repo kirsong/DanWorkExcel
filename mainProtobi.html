@@ -486,7 +486,7 @@
         var itemData={
             jine:$('#jine-input').val(),
             dianshu:$('#dianshu-input').val(),
-            fandian:$('#jine-input').val() * ($('#dianshu-input').val()/100),
+            fandian:Math.round(($('#jine-input').val() * ($('#dianshu-input').val()/100))*100)/100,
             pinpai:$('#pinpai-input').val()//品牌名,特殊返点类型的时候需要添加
         };
 

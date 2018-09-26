@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eee0768e-3b5a-4b79-858b-4b8d856c884a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/mainProtobi.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainProtobi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/project.excel.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/project.excel.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="mainProtobi.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainProtobi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="1061" column="139" selection-start-line="1061" selection-start-column="139" selection-end-line="1061" selection-end-column="139" />
+            <state relative-caret-position="274">
+              <caret line="488" column="99" lean-forward="true" selection-start-line="488" selection-start-column="99" selection-end-line="488" selection-end-column="99" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -230,11 +229,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tabIndex</find>
-      <find>addItem</find>
-      <find>fandianTotalHtml</find>
-      <find>totalData</find>
-      <find>特殊反点</find>
       <find>pinpa-input-div</find>
       <find>tab5</find>
       <find>反点</find>
@@ -260,6 +254,11 @@
       <find>downE</find>
       <find>#,##</find>
       <find>SUM(</find>
+      <find>#,###.00</find>
+      <find>#,###</find>
+      <find>addItem</find>
+      <find>M</find>
+      <find>addit</find>
     </findStrings>
     <replaceStrings>
       <replace>4c4c4c</replace>
@@ -430,12 +429,12 @@
       <workItem from="1537719939167" duration="1685000" />
       <workItem from="1537794923860" duration="6396000" />
       <workItem from="1537888795868" duration="7800000" />
-      <workItem from="1537961223786" duration="6604000" />
+      <workItem from="1537961223786" duration="7497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88057000" />
+    <option name="totallyTimeSpent" value="88950000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -926,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mainProtobi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="1061" column="139" selection-start-line="1061" selection-start-column="139" selection-end-line="1061" selection-end-column="139" />
+        <state relative-caret-position="274">
+          <caret line="488" column="99" lean-forward="true" selection-start-line="488" selection-start-column="99" selection-end-line="488" selection-end-column="99" />
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
